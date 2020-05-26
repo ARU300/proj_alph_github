@@ -99,21 +99,12 @@ def text_normal(text):
         lemma_words.append(lemma_token)  # appending the lemmatized tokens
     return " ".join(lemma_words)  # returns the lemmatized tokens as a sentence
 
-def freqmatrix(sentences):
-    print('Creating Frequency Matrix')
+
+def freqmatrix(words):
     frequency_matrix = {}
-    stopWords = set(stopwords.words("english"))
-    ps = PorterStemmer()
-
-    for sent in sentences:
+    for sent in tokens:
         freq_table = {}
-        words = word_tokenize(sent)
         for word in words:
-            word = word.lower()
-            word = ps.stem(word)
-            if word in stopWords:
-                continue
-
             if word in freq_table:
                 freq_table[word] += 1
             else:
@@ -128,8 +119,8 @@ text_normal(tbtext)
 print(text_normal(tbtext[:500]))
 print('Lemmatization End')
 
-freqmatrix(tbtext)
-print(freqmatrix(tbtext))
+freqmatrix(words)
+print(freqmatrix(words))
 print('Frequency Matrix Created')
 
     
