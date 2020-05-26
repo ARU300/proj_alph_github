@@ -1,4 +1,4 @@
-#import load
+import load
 import pprint
 import datetime
 from pymongo import MongoClient
