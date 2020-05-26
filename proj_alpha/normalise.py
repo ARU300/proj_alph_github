@@ -69,16 +69,16 @@ def text_normal(text):
     words = [word for word in stripped if word.isalpha()]
     stop_words = set(stopwords.words('english'))  # remove stopwords
     words = [w for w in words if not w in stop_words]  # remove stopwords
-    freq = pandas.Series(' '.join(tbtext['text']).split()).value_counts()[:10] #remove common words
-    freq = list(freq.index)
-    tbtext['text'] = tbtext['text'].apply(
-    lambda x: " ".join(x for x in x.split() if x not in freq))
-    tbtext['text'].head()
-    freq = pandas.Series(' '.join(tbtext['text']).split()).value_counts()[-10:] #remove rare words
-    freq = list(freq.index)
-    tbtext['text'] = tbtext['text'].apply(
-    lambda x: " ".join(x for x in x.split() if x not in freq))
-    tbtext['text'].head()
+    #freq = pandas.Series(' '.join(tbtext['text']).split()).value_counts()[:10] #remove common words
+    #freq = list(freq.index)
+    #tbtext['text'] = tbtext['text'].apply(
+    #lambda x: " ".join(x for x in x.split() if x not in freq))
+    #tbtext['text'].head()
+    #freq = pandas.Series(' '.join(tbtext['text']).split()).value_counts()[-10:] #remove rare words
+    #freq = list(freq.index)
+    #tbtext['text'] = tbtext['text'].apply(
+    #lambda x: " ".join(x for x in x.split() if x not in freq))
+    #tbtext['text'].head()
     print(words[:250])
     print('Tokenisation End')
 
