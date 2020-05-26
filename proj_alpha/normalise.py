@@ -128,7 +128,7 @@ modals = ['can', 'could', 'may', 'might', 'must', 'will']
 cfdist = nltk.ConditionalFreqDist(
         (genre, word)
 for genre in genres
-for word in nltk.corpus.brown.words(categories=genre)
+for word in tbtext(categories=genre)
 if word in modals)
 
 counts = {}
