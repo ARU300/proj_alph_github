@@ -97,10 +97,15 @@ def text_normal(text):
         lemma_token = lemma.lemmatize(
             token, pos_token)  # performing lemmatization
         lemma_words.append(lemma_token)  # appending the lemmatized tokens
+        print(text_normal(tbtext[:500]))
+        print('Lemmatization End')
+        freqmatrix(words)
+        print(freqmatrix(words))
     return " ".join(lemma_words)  # returns the lemmatized tokens as a sentence
 
 
 def freqmatrix(words):
+    print('Creating Frequency Matrix')
     frequency_matrix = {}
     for sent in tokens:
         freq_table = {}
@@ -111,16 +116,12 @@ def freqmatrix(words):
                 freq_table[word] = 1
 
         frequency_matrix[sent[:15]] = freq_table
-
+    print('Frequency Matrix Created')
     return frequency_matrix
 
 
 text_normal(tbtext)
-print(text_normal(tbtext[:500]))
-print('Lemmatization End')
 
-freqmatrix(words)
-print(freqmatrix(words))
-print('Frequency Matrix Created')
+
 
     
