@@ -25,9 +25,6 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 
-import discord
-from discord.ext import commands
-
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
