@@ -64,20 +64,9 @@ def text_normal(text):
     table = str.maketrans('', '', string.punctuation)  # remove punctuation
     tokens = word_tokenize(text)  # tokenisation
     stripped = [w.translate(table) for w in tokens]  # remove punctuation
-    # remove special characters
-    words = [word for word in stripped if word.isalpha()]
+    words = [word for word in stripped if word.isalpha()]# remove special characters
     stop_words = set(stopwords.words('english'))  # remove stopwords
     words = [w for w in words if not w in stop_words]  # remove stopwords
-    #freq = pandas.Series(' '.join(tbtext['text']).split()).value_counts()[:10] #remove common words
-    #freq = list(freq.index)
-    #tbtext['text'] = tbtext['text'].apply(
-    #lambda x: " ".join(x for x in x.split() if x not in freq))
-    #tbtext['text'].head()
-    #freq = pandas.Series(' '.join(tbtext['text']).split()).value_counts()[-10:] #remove rare words
-    #freq = list(freq.index)
-    #tbtext['text'] = tbtext['text'].apply(
-    #lambda x: " ".join(x for x in x.split() if x not in freq))
-    #tbtext['text'].head()
     print(words[:250])
     print('Tokenisation End')
 
@@ -99,13 +88,10 @@ def text_normal(text):
         lemma_words.append(lemma_token)  # appending the lemmatized tokens
         print(text_normal(tbtext[:500]))
         print('Lemmatization End')
-        freqmatrix(words)
-        print(freqmatrix(words))
     return " ".join(lemma_words)  # returns the lemmatized tokens as a sentence
 
 
 def freqmatrix(words):
-    print('Creating Frequency Matrix')
     frequency_matrix = {}
     for sent in tokens:
         freq_table = {}
@@ -116,12 +102,14 @@ def freqmatrix(words):
                 freq_table[word] = 1
 
         frequency_matrix[sent[:15]] = freq_table
-    print('Frequency Matrix Created')
+
     return frequency_matrix
 
 
 text_normal(tbtext)
-
+freqmatrix(words)
+print(freqmatrix(words))
+print('Frequency Matrix Created')
 
 
     
