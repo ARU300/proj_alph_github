@@ -99,38 +99,37 @@ def text_normal(text):
         lemma_words.append(lemma_token)  # appending the lemmatized tokens
     return " ".join(lemma_words)  # returns the lemmatized tokens as a sentence
 
+def freqmatrix(sentences):
+    print('Creating Frequency Matrix')
+    frequency_matrix = {}
+    stopWords = set(stopwords.words("english"))
+    ps = PorterStemmer()
+
+    for sent in sentences:
+        freq_table = {}
+        words = word_tokenize(sent)
+        for word in words:
+            word = word.lower()
+            word = ps.stem(word)
+            if word in stopWords:
+                continue
+
+            if word in freq_table:
+                freq_table[word] += 1
+            else:
+                freq_table[word] = 1
+
+        frequency_matrix[sent[:15]] = freq_table
+
+    return frequency_matrix
+
 
 text_normal(tbtext)
 print(text_normal(tbtext[:500]))
 print('Lemmatization End')
 
-colors = 'rgbcmyk'  # red, green, blue, cyan, magenta, yellow, black
+freqmatrix(tbtext)
+print(freqmatrix(tbtext))
+print('Frequency Matrix Created')
 
-
-def bar_chart(categories, words, counts):
-    "Plot a bar chart showing counts for each word by category"
-    ind = arange(len(words))
-    width = 1 / (len(categories) + 1)
-    bar_groups = []
-    for c in range(len(categories)):
-        bars = pyplot.bar(ind+c*width, counts[categories[c]], width,
-                          color=colors[c % len(colors)])
-        bar_groups.append(bars)
-    pyplot.xticks(ind+width, words)
-    pyplot.legend([b[0] for b in bar_groups], categories, loc='upper left')
-    pyplot.ylabel('Frequency')
-    pyplot.title('Frequency of Six Modal Verbs by Genre')
-    pyplot.show()
-
-
-#genres = ['news', 'religion', 'hobbies', 'government', 'adventure']
-#modals = ['can', 'could', 'may', 'might', 'must', 'will']
-#cfdist = nltk.ConditionalFreqDist(
-#        (genre, word)
-#        for genre in genres
-#        for word in tbtext(categories=genre)
-#        if word in modals)
-#counts = {}
-#for genre in genres:
-#    counts[genre] = [cfdist[genre][word] for word in modals]
-#bar_chart(genres, modals, counts)
+    
