@@ -123,14 +123,14 @@ def bar_chart(categories, words, counts):
     pyplot.show()
 
 
-genres = ['news', 'religion', 'hobbies', 'government', 'adventure']
-modals = ['can', 'could', 'may', 'might', 'must', 'will']
-cfdist = nltk.ConditionalFreqDist(
-        (genre, word)
-        for genre in genres
-        for word in tbtext(categories=genre)
-        if word in modals)
-counts = {}
-for genre in genres:
-    counts[genre] = [cfdist[genre][word] for word in modals]
-bar_chart(genres, modals, counts)
+#genres = ['news', 'religion', 'hobbies', 'government', 'adventure']
+#modals = ['can', 'could', 'may', 'might', 'must', 'will']
+#cfdist = nltk.ConditionalFreqDist(
+#        (genre, word)
+#        for genre in genres
+#        for word in tbtext(categories=genre)
+#        if word in modals)
+#counts = {}
+#for genre in genres:
+#    counts[genre] = [cfdist[genre][word] for word in modals]
+#bar_chart(genres, modals, counts)
