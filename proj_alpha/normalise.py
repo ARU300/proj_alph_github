@@ -53,10 +53,6 @@ file = open(filename, 'rt')  # load data
 tbtext = file.read()  # load data
 file.close()  # load 
 
-#tbtext = pd.read_csv('tbtext_E6oV3lV.csv')
-
-
-
 def text_normal(text):
     print('Tokenisation Start')
     text = str(text).lower()  # text to lower case
@@ -110,6 +106,3 @@ text_normal(tbtext)
 freqmatrix(words)
 print(freqmatrix(words))
 print('Frequency Matrix Created')
-
-
-    
