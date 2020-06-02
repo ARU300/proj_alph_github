@@ -60,7 +60,7 @@ def text_normal(text):
     table = str.maketrans('', '', string.punctuation)  # remove punctuation
     tokens = word_tokenize(text)  # tokenisation
     stripped = [w.translate(table) for w in tokens]  # remove punctuation
-    words = [word for word in stripped if word.isalpha()]# remove special characters
+    words = [word for word in stripped if word.isalpha()] # remove special characters
     stop_words = set(stopwords.words('english'))  # remove stopwords
     words = [w for w in words if not w in stop_words]  # remove stopwords
     print(words[:250])
