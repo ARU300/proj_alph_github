@@ -48,7 +48,7 @@ import threading
 
 from pathlib import Path
 
-filename = 'text.txt'  # load data
+filename = '../text.txt'  # load data
 file = open(filename, 'rt')  # load data
 tbtext = file.read()  # load data
 file.close()  # load 
