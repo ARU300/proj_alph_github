@@ -59,3 +59,7 @@ for cluster in clusters:
     # create scatter of these samples
     pyplot.scatter(X[row_ix, 0], X[row_ix, 1])
 pyplot.show()
+
+def cluster_plot(model):
+
+
