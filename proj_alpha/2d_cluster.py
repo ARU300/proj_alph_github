@@ -20,7 +20,7 @@ from matplotlib import pyplot
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import sklearn
-from sklearn.datasets import make_classification
+from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
 from sklearn.cluster import DBSCAN
 from sklearn import datasets
@@ -30,36 +30,22 @@ from numpy import where
 from pathlib import Path
 
 # define dataset
-X, _ = make_classification(n_samples=1000, n_features=2, n_informative=2, n_redundant=0, n_clusters_per_class=1, random_state=4)
-# define the model
-model = DBSCAN(eps=0.3, min_samples=50, n_jobs=3)
-# fit model and predict clusters
-yhat = model.fit_predict(X)
-# retrieve unique clusters
-clusters = unique(yhat)
-# create scatter plot for samples from each cluster
-for cluster in clusters:
-    # get row indexes for samples with this cluster
-    row_ix = where(yhat == cluster)
-    # create scatter of these samples
-    pyplot.scatter(X[row_ix, 0], X[row_ix, 1])
-# show the plot
-pyplot.show()
-
-# define the model
-model = KMeans(n_clusters=2)
-# fit the model
-yhat = model.fit_predict(X)
-# retrieve unique clusters
-clusters = unique(yhat)
-# create scatter plot for samples from each cluster
-for cluster in clusters:
-    # get row indexes for samples with this cluster
-    row_ix = where(yhat == cluster)
-    # create scatter of these samples
-    pyplot.scatter(X[row_ix, 0], X[row_ix, 1])
-pyplot.show()
-
-def cluster_plot(model):
+X, y = make_blobs(n_samples=300, centers=4, cluster_std=0.60, random_state=0)
 
 
+def cluster_plot(type, classify):
+    yhat = model.fit_predict(classify)
+    clusters = unique(yhat)
+    for cluster in clusters:
+        row_ix = where(yhat == cluster)
+        pyplot.scatter(X[row_ix, 0], X[row_ix, 1])
+    pyplot.show()
+
+
+model = DBSCAN(eps=0.5, min_samples=50, n_jobs=1)
+cluster_plot(type=model, classify=X)
+
+model = KMeans(n_clusters=4)
+cluster_plot(type=model, classify=X)
+
+quit()

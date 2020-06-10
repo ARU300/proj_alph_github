@@ -3,6 +3,13 @@
     <option name="myName" value="Project Default" />
     <inspection_tool class="DuplicatedInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="InstalledPackageInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="type" />
+        </list>
+      </option>
+    </inspection_tool>
     <inspection_tool class="ReferenceExistsInspection" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="UnusedInspection" enabled="true" level="WARNING" enabled_by_default="true" />
   </profile>
