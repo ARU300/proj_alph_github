@@ -1,12 +1,12 @@
-# Welcome to **Proj Alph**!
+# Welcome to **Proj Alph™️**!
 
-> What is **Proj Alph**?
+> What is **Proj Alph™️**?
 
-Currently **Proj Alph** is a `WIP` program designed by `@ARU300`.  There are many different sections to the Project all based on using `Aritifical Intelligence` or `Machine Learning` to aid us in our everyday activities.
+Currently **Proj Alph™️** is a `WIP` program designed by `@ARU300`.  There are many different sections to the Project all based on using `Aritifical Intelligence` or `Machine Learning` to aid us in our everyday activities.
 
 ## The Idea
 
-As you look through the `GITHUB` files you will notice many different *Sub-Projects*, all contributing to the **Proj Alph**. 
+As you look through the `GITHUB` files you will notice many different *Sub-Projects*, all contributing to the **Proj Alph™️**. 
 
 [I will detail the purpose and contents of all shortly afterwards in `Structure`]
 
